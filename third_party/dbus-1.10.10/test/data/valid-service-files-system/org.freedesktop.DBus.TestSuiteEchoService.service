@@ -1,0 +1,5 @@
+[D-BUS Service]
+Name=org.freedesktop.DBus.TestSuiteEchoService
+Exec=/home/patriotyk/sota_client_cpp/third_party/dbus-1.10.10/test/test-service
+User=anyrandomuser
+

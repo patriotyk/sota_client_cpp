@@ -1,0 +1,5 @@
+[Unit]
+Description=D-Bus System Message Bus Socket
+
+[Socket]
+ListenStream=/home/patriotyk/sota_client_cpp/libdbus_build/var/run/dbus/system_bus_socket

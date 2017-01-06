@@ -1,0 +1,163 @@
+libdbus_1_la-dbus-sysdeps-pthread.lo: dbus-sysdeps-pthread.c \
+ /usr/include/stdc-predef.h ../config.h dbus-internals.h \
+ ../dbus/dbus-memory.h ../dbus/dbus-macros.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/5/include/stddef.h ../dbus/dbus-types.h \
+ ../dbus/dbus-arch-deps.h ../dbus/dbus-errors.h ../dbus/dbus-protocol.h \
+ ../dbus/dbus-sysdeps.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/5/include/stdint.h \
+ /usr/include/stdint.h /usr/include/features.h \
+ /usr/include/arm-linux-gnueabihf/sys/cdefs.h \
+ /usr/include/arm-linux-gnueabihf/bits/wordsize.h \
+ /usr/include/arm-linux-gnueabihf/gnu/stubs.h \
+ /usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h \
+ /usr/include/arm-linux-gnueabihf/bits/wchar.h /usr/include/inttypes.h \
+ ../dbus/dbus-file.h ../dbus/dbus-string.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/5/include/stdarg.h \
+ /usr/include/string.h /usr/include/xlocale.h \
+ /usr/include/arm-linux-gnueabihf/bits/string.h \
+ /usr/include/arm-linux-gnueabihf/bits/string2.h /usr/include/stdlib.h \
+ /usr/include/arm-linux-gnueabihf/bits/string3.h \
+ /usr/include/arm-linux-gnueabihf/sys/poll.h \
+ /usr/include/arm-linux-gnueabihf/bits/poll.h \
+ /usr/include/arm-linux-gnueabihf/bits/sigset.h /usr/include/time.h \
+ /usr/include/arm-linux-gnueabihf/bits/types.h \
+ /usr/include/arm-linux-gnueabihf/bits/typesizes.h \
+ /usr/include/arm-linux-gnueabihf/bits/poll2.h \
+ ../dbus/dbus-threads-internal.h ../dbus/dbus-threads.h dbus-sysdeps.h \
+ dbus-threads.h /usr/include/arm-linux-gnueabihf/sys/time.h \
+ /usr/include/arm-linux-gnueabihf/bits/time.h \
+ /usr/include/arm-linux-gnueabihf/sys/select.h \
+ /usr/include/arm-linux-gnueabihf/bits/select.h \
+ /usr/include/arm-linux-gnueabihf/bits/select2.h /usr/include/pthread.h \
+ /usr/include/endian.h /usr/include/arm-linux-gnueabihf/bits/endian.h \
+ /usr/include/arm-linux-gnueabihf/bits/byteswap.h \
+ /usr/include/arm-linux-gnueabihf/bits/byteswap-16.h /usr/include/sched.h \
+ /usr/include/arm-linux-gnueabihf/bits/sched.h \
+ /usr/include/arm-linux-gnueabihf/bits/timex.h \
+ /usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h \
+ /usr/include/arm-linux-gnueabihf/bits/setjmp.h /usr/include/errno.h \
+ /usr/include/arm-linux-gnueabihf/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/arm-linux-gnueabihf/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h
+
+/usr/include/stdc-predef.h:
+
+../config.h:
+
+dbus-internals.h:
+
+../dbus/dbus-memory.h:
+
+../dbus/dbus-macros.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/5/include/stddef.h:
+
+../dbus/dbus-types.h:
+
+../dbus/dbus-arch-deps.h:
+
+../dbus/dbus-errors.h:
+
+../dbus/dbus-protocol.h:
+
+../dbus/dbus-sysdeps.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/5/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/features.h:
+
+/usr/include/arm-linux-gnueabihf/sys/cdefs.h:
+
+/usr/include/arm-linux-gnueabihf/bits/wordsize.h:
+
+/usr/include/arm-linux-gnueabihf/gnu/stubs.h:
+
+/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h:
+
+/usr/include/arm-linux-gnueabihf/bits/wchar.h:
+
+/usr/include/inttypes.h:
+
+../dbus/dbus-file.h:
+
+../dbus/dbus-string.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/5/include/stdarg.h:
+
+/usr/include/string.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/arm-linux-gnueabihf/bits/string.h:
+
+/usr/include/arm-linux-gnueabihf/bits/string2.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/arm-linux-gnueabihf/bits/string3.h:
+
+/usr/include/arm-linux-gnueabihf/sys/poll.h:
+
+/usr/include/arm-linux-gnueabihf/bits/poll.h:
+
+/usr/include/arm-linux-gnueabihf/bits/sigset.h:
+
+/usr/include/time.h:
+
+/usr/include/arm-linux-gnueabihf/bits/types.h:
+
+/usr/include/arm-linux-gnueabihf/bits/typesizes.h:
+
+/usr/include/arm-linux-gnueabihf/bits/poll2.h:
+
+../dbus/dbus-threads-internal.h:
+
+../dbus/dbus-threads.h:
+
+dbus-sysdeps.h:
+
+dbus-threads.h:
+
+/usr/include/arm-linux-gnueabihf/sys/time.h:
+
+/usr/include/arm-linux-gnueabihf/bits/time.h:
+
+/usr/include/arm-linux-gnueabihf/sys/select.h:
+
+/usr/include/arm-linux-gnueabihf/bits/select.h:
+
+/usr/include/arm-linux-gnueabihf/bits/select2.h:
+
+/usr/include/pthread.h:
+
+/usr/include/endian.h:
+
+/usr/include/arm-linux-gnueabihf/bits/endian.h:
+
+/usr/include/arm-linux-gnueabihf/bits/byteswap.h:
+
+/usr/include/arm-linux-gnueabihf/bits/byteswap-16.h:
+
+/usr/include/sched.h:
+
+/usr/include/arm-linux-gnueabihf/bits/sched.h:
+
+/usr/include/arm-linux-gnueabihf/bits/timex.h:
+
+/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:
+
+/usr/include/arm-linux-gnueabihf/bits/setjmp.h:
+
+/usr/include/errno.h:
+
+/usr/include/arm-linux-gnueabihf/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/arm-linux-gnueabihf/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
