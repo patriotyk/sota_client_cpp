@@ -25,6 +25,18 @@ struct AuthConfig {
   std::string client_secret;
 };
 
+
+struct DbusConfig {
+  DbusConfig()
+      : software_manager("org.genivi.SoftwareLoadingManager"),
+        software_manager_path("/org/genivi/SoftwareLoadingManager"),
+        timeout(0) {}
+
+  std::string software_manager;
+  std::string software_manager_path;
+  unsigned int timeout;
+};
+
 struct DeviceConfig {
   DeviceConfig()
       : uuid("123e4567-e89b-12d3-a456-426655440000"), packages_dir("/tmp/") {}
@@ -47,5 +59,6 @@ class Config {
   CoreConfig core;
   AuthConfig auth;
   DeviceConfig device;
+  DbusConfig dbus;
 };
 #endif  // CONFIG_H_

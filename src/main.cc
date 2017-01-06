@@ -29,6 +29,9 @@
 #include "logger.h"
 
 #include "interpreter.h"
+#include <CommonAPI/CommonAPI.hpp>
+
+#include "dbusgateway/HelloWorldStubImpl.hpp"
 
 /*****************************************************************************/
 
@@ -159,8 +162,20 @@ int main(int argc, char *argv[]) {
   // run interpreter in thread
   interpreter.interpret();
 
-  start_update_poller(static_cast<unsigned int>(config.core.polling_sec),
-                      &command_channel);
+
+  std::shared_ptr<CommonAPI::Runtime> runtime = CommonAPI::Runtime::get();
+      std::shared_ptr<HelloWorldStubImpl> myService =
+          std::make_shared<HelloWorldStubImpl>();
+      runtime->registerService("system", "test", myService);
+      std::cout << "Successfully Registered Service!" << std::endl;
+
+      while (true) {
+          std::cout << "Waiting for calls... (Abort with CTRL+C)" << std::endl;
+          std::this_thread::sleep_for(std::chrono::seconds(30));
+      }
+
+  //start_update_poller(static_cast<unsigned int>(config.core.polling_sec),
+  //                    &command_channel);
 
   return return_value;
 }
