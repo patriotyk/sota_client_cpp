@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.freedesktop.DBus.TestSuite.PrivServer
+Exec=/home/patriotyk/sota_client_cpp/third_party/dbus-1.10.10/test/name-test/test-privserver
+

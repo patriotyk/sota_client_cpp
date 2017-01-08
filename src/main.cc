@@ -166,7 +166,7 @@ int main(int argc, char *argv[]) {
   std::shared_ptr<CommonAPI::Runtime> runtime = CommonAPI::Runtime::get();
       std::shared_ptr<HelloWorldStubImpl> myService =
           std::make_shared<HelloWorldStubImpl>();
-      runtime->registerService("system", "test", myService);
+      runtime->registerService("local", "test", myService);
       std::cout << "Successfully Registered Service!" << std::endl;
 
       while (true) {
