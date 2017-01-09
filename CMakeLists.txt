@@ -21,6 +21,14 @@ option(BUILD_WITH_CODE_COVERAGE "Enable gcov code coverage" OFF)
 # set build type to Debug or Release here
 set(CMAKE_BUILD_TYPE Debug)
 
+
+OPTION(BUILD_WITH_DBUS_GATEWAY "Set to ON to compile with dbus gateway support" OFF)
+message(STATUS "BUILD_WITH_DBUS_GATEWAY is set to value: ${BUILD_WITH_DBUS_GATEWAY}")
+if(BUILD_WITH_DBUS_GATEWAY)
+
+add_definitions(-DWITH_DBUS)
+
+
 include(ExternalProject)
 
 ExternalProject_Add(libdbus
@@ -44,11 +52,7 @@ ExternalProject_Add(dbusapi
     BUILD_COMMAND ${MAKE}
     BUILD_IN_SOURCE 1)
 
-#add_dependencies(libdbus dbusapi commonapi)
-
-
-#list( APPEND CMAKE_FIND_ROOT_PATH "third_party" )
-#add_subdirectory("third_party/capicxx-core-runtime")
+endif(BUILD_WITH_DBUS_GATEWAY)
 
 #add_subdirectory("src")
 # FIXME temporary use include because of bugs with coverage

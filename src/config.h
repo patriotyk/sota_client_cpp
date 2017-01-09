@@ -30,10 +30,14 @@ struct DbusConfig {
   DbusConfig()
       : software_manager("org.genivi.SoftwareLoadingManager"),
         software_manager_path("/org/genivi/SoftwareLoadingManager"),
+        path("/org/genivi/SotaClient"),
+        interface("org.genivi.SotaClient"),
         timeout(0) {}
 
   std::string software_manager;
   std::string software_manager_path;
+  std::string path;
+  std::string interface;
   unsigned int timeout;
 };
 

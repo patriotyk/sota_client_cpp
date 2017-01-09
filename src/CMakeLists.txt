@@ -10,11 +10,6 @@ pkg_search_module(SYSTEMD libsystemd)
 
 
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -std=c++0x")
-include_directories(
-    src/dbusgateway/
-)
-
 
 # configure libraries
 set(LINK_LIBS libpthread.so
@@ -38,11 +33,8 @@ set(SOURCES third_party/jsoncpp/jsoncpp.cpp
             src/events.cc
             src/commands.cc
             src/types.cc
-            src/main.cc
-            src/dbusgateway/HelloWorldStubImpl.cpp
-            src/dbusgateway/v1/commonapi/HelloWorldStubDefault
-            src/dbusgateway/v1/commonapi/HelloWorldDBusDeployment
-            src/dbusgateway/v1/commonapi/HelloWorldDBusStubAdapter)
+            src/main.cc)
+
 
 set(HEADERS src/logger.h
             src/config.h
@@ -51,11 +43,32 @@ set(HEADERS src/logger.h
             src/sotahttpclient.h
             src/events.h
             src/commands.h
-            src/types.h)
+            src/types.h
+            )
 
-set_property(SOURCE third_party/jsoncpp/jsoncpp.cpp APPEND_STRING PROPERTY COMPILE_FLAGS " -w")
+
+
 
 include_directories(third_party/jsoncpp)
+set_property(SOURCE third_party/jsoncpp/jsoncpp.cpp APPEND_STRING PROPERTY COMPILE_FLAGS " -w")
+
+if(BUILD_WITH_DBUS_GATEWAY)
+
+
+set(DBUS_SOURCES    src/dbusgateway/dbusgateway.cc
+                    src/dbusgateway/src-gen/v1/org/genivi/swm/SotaClientStubDefault
+                    src/dbusgateway/src-gen/v1/org/genivi/swm/SotaClientDBusDeployment
+                    src/dbusgateway/src-gen/v1/org/genivi/swm/SotaClientDBusStubAdapter
+)
+
+set(DBUS_HEADERS src/dbusgateway/dbusgateway.h )
+
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -std=c++0x")
+include_directories(
+    src/dbusgateway/src-gen
+)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libdbus_build/include/dbus-1.0)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libdbus_build/lib/dbus-1.0/include/)
 
@@ -69,24 +82,24 @@ link_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/dbusapi_install/lib
 )
 
+set(DBUS_LIBS CommonAPI CommonAPI-DBus dbus-1)
+
+
+endif(BUILD_WITH_DBUS_GATEWAY)
 
 # set output folder
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY target/)
 
 # set the name of the executable
-add_executable(sota_client ${SOURCES})
+add_executable(sota_client ${SOURCES} ${DBUS_SOURCES})
 
 # define libraries for the target
-target_link_libraries(sota_client ${LINK_LIBS} CommonAPI CommonAPI-DBus dbus-1)
-add_dependencies(sota_client dbusapi)
-add_dependencies(dbusapi commonapi libdbus)
+target_link_libraries(sota_client ${LINK_LIBS} ${DBUS_LIBS})
 
+if(BUILD_WITH_DBUS_GATEWAY)
+    add_dependencies(sota_client dbusapi)
+    add_dependencies(dbusapi commonapi libdbus)
+endif(BUILD_WITH_DBUS_GATEWAY)
 
-add_executable(HelloWorldClient
-    src/dbusgateway/HelloWorldClient.cpp
-    src/dbusgateway/v1/commonapi/HelloWorldDBusProxy.cpp
-    src/dbusgateway/v1/commonapi/HelloWorldDBusDeployment
-)
-target_link_libraries(HelloWorldClient CommonAPI CommonAPI-DBus dbus-1)
 
 

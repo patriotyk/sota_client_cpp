@@ -69,7 +69,7 @@ DBusAddressTranslator::translate(const CommonAPI::Address &_key, DBusAddress &_v
         std::string interfaceName(_key.getInterface());
         std::string objectPath("/" + _key.getInstance());
         std::replace(objectPath.begin(), objectPath.end(), '.', '/');
-        std::string service(_key.getInterface() + "_" + _key.getInstance());
+        std::string service(_key.getInterface());
 
         if (isValid(service, '.', false, false, true)
          && isValid(objectPath, '/', true)
