@@ -34,7 +34,7 @@ include(ExternalProject)
 ExternalProject_Add(libdbus
     DOWNLOAD_COMMAND ""
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/dbus-1.9.0
-    CONFIGURE_COMMAND  ${CMAKE_CURRENT_SOURCE_DIR}/third_party/dbus-1.9.0/configure --prefix=${CMAKE_CURRENT_SOURCE_DIR}/libdbus_build --with-systemdsystemunitdir=${CMAKE_CURRENT_SOURCE_DIR}/libdbus_build/lib/systemd
+    CONFIGURE_COMMAND  ${CMAKE_CURRENT_SOURCE_DIR}/third_party/dbus-1.9.0/autogen.sh COMMAND  ${CMAKE_CURRENT_SOURCE_DIR}/third_party/dbus-1.9.0/configure --prefix=${CMAKE_CURRENT_SOURCE_DIR}/libdbus_build --with-systemdsystemunitdir=${CMAKE_CURRENT_SOURCE_DIR}/libdbus_build/lib/systemd
     BUILD_COMMAND ${MAKE}
     BUILD_IN_SOURCE 1)
 

@@ -3,11 +3,10 @@
 
 #include <boost/shared_ptr.hpp>
 
-
 #include <json/json.h>
 
-#include "types.h"
 #include "channel.h"
+#include "types.h"
 
 namespace event {
 

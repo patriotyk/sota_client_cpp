@@ -25,7 +25,6 @@ struct AuthConfig {
   std::string client_secret;
 };
 
-
 struct DbusConfig {
   DbusConfig()
       : software_manager("org.genivi.SoftwareLoadingManager"),

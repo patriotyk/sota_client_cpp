@@ -138,6 +138,7 @@ if(BUILD_WITH_DBUS_GATEWAY)
 
     # set the libraries for the current target
     target_link_libraries(sota_client_test_dbusgateway ${TEST_LIBS} ${DBUS_LIBS})
+    add_dependencies(sota_client_test_dbusgateway dbusapi)
 endif(BUILD_WITH_DBUS_GATEWAY)
 
 

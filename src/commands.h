@@ -3,7 +3,6 @@
 
 #include <boost/shared_ptr.hpp>
 
-
 #include <json/json.h>
 #include <string>
 #include "channel.h"
@@ -64,7 +63,6 @@ class AbortDownload : public BaseCommand {
   std::string toJson();
   static AbortDownload fromJson(const std::string& json_str);
 };
-
 
 class StartInstall : public BaseCommand {
  public:
