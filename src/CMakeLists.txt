@@ -31,6 +31,7 @@ set(SOURCES third_party/jsoncpp/jsoncpp.cpp
             src/commands.cc
             src/types.cc
             src/main.cc
+            src/sotarviclient.cpp
             src/eventsinterpreter.cc
             src/gatewaymanager.cc
             src/socketgateway.cc)
@@ -84,6 +85,10 @@ link_directories(
 set(DBUS_LIBS CommonAPI CommonAPI-DBus dbus-1)
 endif(BUILD_WITH_DBUS_GATEWAY)
 
+ExternalProject_Get_Property(rvi_lib source_dir)
+include_directories(${source_dir}/include)
+link_directories(${source_dir}/src/.libs)
+
 # set output folder
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY target/)
 
@@ -91,12 +96,15 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY target/)
 add_executable(sota_client ${SOURCES} ${DBUS_SOURCES})
 
 # define libraries for the target
-target_link_libraries(sota_client ${LINK_LIBS} ${DBUS_LIBS})
+target_link_libraries(sota_client ${LINK_LIBS} ${DBUS_LIBS} rvi)
 
 if(BUILD_WITH_DBUS_GATEWAY)
+    add_dependencies(dbusapi libdbus)
+    add_dependencies(dbusapi commonapi)
     add_dependencies(sota_client dbusapi)
-    add_dependencies(dbusapi commonapi libdbus)
 endif(BUILD_WITH_DBUS_GATEWAY)
+
+add_dependencies(sota_client rvi_lib)
 
 configure_file(distribution/sota.service.cmake distribution/sota.service)
 install(FILES distribution/sota.service DESTINATION /etc/systemd/system  COMPONENT init)

@@ -39,6 +39,9 @@ void EventsInterpreter::run() {
         *commands_channel << boost::shared_ptr<command::StartDownload>(
             new command::StartDownload(update->requestId));
       }
+    } else if (event->variant == "UpdateAvailable") {
+      *commands_channel << boost::shared_ptr<command::StartDownload>(
+            new command::StartDownload(static_cast<event::UpdateAvailable*>(event.get())->update_vailable.update_id));
     }
   }
 }

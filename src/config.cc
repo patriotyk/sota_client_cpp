@@ -104,6 +104,36 @@ void Config::updateFromToml(const std::string& filename) {
             << filename
             << ", Falling back to default: " << device.packages_dir);
   }
+  
+  try {
+    rvi.node_host = getStringValue(pt, "rvi.node_host");
+  } catch (...) {
+    LOGGER_LOG(
+        LVL_debug,
+        "no 'rvi.node_host' option have been found in config file: "
+            << filename
+            << ", Falling back to default: " << rvi.node_host);
+  }
+  
+  try {
+    rvi.node_port = getStringValue(pt, "rvi.node_port");
+  } catch (...) {
+    LOGGER_LOG(
+        LVL_debug,
+        "no 'rvi.node_port' option have been found in config file: "
+            << filename
+            << ", Falling back to default: " << rvi.node_port);
+  }
+  
+  try {
+    rvi.client_config = getStringValue(pt, "rvi.client_config");
+  } catch (...) {
+    LOGGER_LOG(
+        LVL_debug,
+        "no 'rvi.client_config' option have been found in config file: "
+            << filename
+            << ", Falling back to default: " << rvi.client_config);
+  }
 
   try {
     std::string events_string = getStringValue(pt, "network.socket_events");

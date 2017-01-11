@@ -74,10 +74,15 @@ Json::Value UpdateAvailable::toJson() {
   return json;
 }
 
+
 UpdateAvailable UpdateAvailable::fromJson(const std::string& json_str) {
   Json::Reader reader;
   Json::Value json;
   reader.parse(json_str, json);
+  return fromJson(json);
+}
+
+UpdateAvailable UpdateAvailable::fromJson(const Json::Value& json) {
   UpdateAvailable ua;
   ua.update_id = json["update_id"].asString();
   ua.signature = json["signature"].asString();

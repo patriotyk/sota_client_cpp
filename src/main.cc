@@ -25,14 +25,15 @@
 #include <boost/thread.hpp>
 #include <iostream>
 #include <memory>
+
 #include "channel.h"
 #include "commands.h"
 #include "config.h"
 #include "events.h"
 #include "logger.h"
-
 #include "eventsinterpreter.h"
 #include "httpcommandinterpreter.h"
+#include "sotarviclient.h"
 
 /*****************************************************************************/
 
@@ -58,7 +59,6 @@ bpo::variables_map parse_options(int argc, char *argv[]) {
       "gateway-rvi", bpo::value<bool>(), "on/off the rvi gateway")(
       "gateway-socket", bpo::value<bool>(), "on/off the socket gateway")(
       "gateway-dbus", bpo::value<bool>(), "on/off the dbus gateway")
-
       ;
 
   bpo::variables_map vm;
@@ -156,6 +156,9 @@ int main(int argc, char *argv[]) {
     http_interpreter.interpret();
     start_update_poller(static_cast<unsigned int>(config.core.polling_sec),
                         commands_channel);
+  } else if(config.gateway.rvi){
+    SotaRVIClient rvi_client(config.rvi, events_channel);
+    rvi_client.run();
   }
 
   return return_value;
