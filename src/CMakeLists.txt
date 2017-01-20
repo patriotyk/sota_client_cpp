@@ -93,3 +93,8 @@ if(BUILD_WITH_DBUS_GATEWAY)
     add_dependencies(dbusapi commonapi libdbus)
 endif(BUILD_WITH_DBUS_GATEWAY)
 
+configure_file(distribution/sota.service.cmake distribution/sota.service)
+install(FILES distribution/sota.service DESTINATION /etc/systemd/system  COMPONENT init)
+install(TARGETS sota_client RUNTIME  DESTINATION bin)
+install(FILES  config/config.toml.example DESTINATION /etc/  RENAME sota.toml  COMPONENT configuration)
+
