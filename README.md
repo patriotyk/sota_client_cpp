@@ -2,6 +2,7 @@
 [![TravisCI Build Status](https://travis-ci.org/advancedtelematic/sota_client_cpp.svg?branch=master)](https://travis-ci.org/advancedtelematic/sota_client_cpp)
 [![codecov](https://codecov.io/gh/advancedtelematic/sota_client_cpp/branch/master/graph/badge.svg)](https://codecov.io/gh/advancedtelematic/sota_client_cpp)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/539/badge)](https://bestpractices.coreinfrastructure.org/projects/539)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpatriotyk%2Fsota_client_cpp.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpatriotyk%2Fsota_client_cpp?ref=badge_shield)
 
 sota_client_cpp
 ------
@@ -135,3 +136,7 @@ docker run --rm -it --read-only -u $UID -v $PWD/build:/source/build advancedtele
 ~~~
 
 though be aware that the output binary (`build/target/sota_client`) may have dynamic linking requirements that are not met by your host environment. Also note that running the linting rule (`make qa`) may attempt to modify the source files in the Docker container. If the linting rule is run with `-u $UID` or `--read-only`, the execution will fail with an `llvm` segfault when the linter outputs the source files.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpatriotyk%2Fsota_client_cpp.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpatriotyk%2Fsota_client_cpp?ref=badge_large)
